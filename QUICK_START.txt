@@ -1,0 +1,49 @@
+# QUICK START - Paper Crown Films Website
+
+## 🚀 5-Minute Deployment
+
+### 1. Create GitHub Account
+→ https://github.com (if you don't have one)
+
+### 2. Create Repository
+→ https://github.com/new
+- Name it anything (e.g., "papercrownfilms")
+- Make it PUBLIC
+- Don't initialize with anything
+- Create
+
+### 3. Upload Files
+- Click "uploading an existing file"
+- Drag ALL files from this folder
+- Commit
+
+### 4. Enable GitHub Pages
+Settings → Pages → Source: "main" → Save
+Wait 3 minutes → Site live!
+
+### 5. Add Your Domain
+**DNS Settings (at your domain registrar):**
+
+A Records:
+```
+@ → 185.199.108.153
+@ → 185.199.109.153
+@ → 185.199.110.153
+@ → 185.199.111.153
+```
+
+CNAME Record:
+```
+www → YOUR-USERNAME.github.io
+```
+
+**In GitHub:**
+Settings → Pages → Custom domain: `papercrownfilms.com` → Save
+
+**For .com.au:** Set up redirect to .com in your registrar
+
+---
+
+✅ Done! Site will be live at papercrownfilms.com in 24-48 hours (DNS propagation)
+
+💡 In the meantime, view at: YOUR-USERNAME.github.io/REPO-NAME
