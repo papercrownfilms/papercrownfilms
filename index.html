@@ -231,7 +231,7 @@ document.body.style.overflow='auto';
     width: 100vw !important;
     height: 100vh !important;
     display: block !important;
-    padding-top: 25vh !important;
+    padding-top: 0 !important;   /* changed from 25vh */
     background: #000;
     z-index: 10000;
     text-align: center !important;
@@ -248,9 +248,13 @@ document.body.style.overflow='auto';
 
   .intro-video.mobile {
     display: block !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
   }
 
 }
+
 </style>
 
 </body>
