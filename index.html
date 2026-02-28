@@ -19,6 +19,28 @@ html, body {
 .skip{position:fixed;top:30px;right:30px;padding:10px 24px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;z-index:10001;border-radius:4px}
 .skip:hover{border-color:#c9a84c;color:#c9a84c;background:rgba(0,0,0,0.8)}
 
+/* Mobile fix for intro animation */
+@media(max-width:768px){
+
+  #intro {
+    align-items: flex-start;     /* lift the animation higher */
+    padding-top: 10vh;           /* push it into visual center */
+  }
+
+  .intro-video {
+    width: 120vw;                /* make it larger */
+    height: auto;                /* keep proportions */
+    object-fit: contain;
+  }
+
+  .skip {
+    top: 20px;                   /* adjust skip button */
+    right: 20px;
+  }
+}
+
+
+
 #site{display:none}
 #site.show{display:block;animation:siteReveal 0.8s ease-out}
 
