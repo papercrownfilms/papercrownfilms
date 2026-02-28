@@ -23,10 +23,10 @@ html, body {
 @media(max-width:768px){
 
   #intro {
-    display: block !important;        /* force disable flexbox */
-    align-items: unset !important;    /* override flex alignment */
-    justify-content: unset !important;
-    padding-top: 9vh;                 /* now this will work */
+    display: block !important;          /* force disable flexbox */
+    align-items: unset !important;      /* override flex alignment */
+    justify-content: unset !important;  /* override flex centering */
+    padding-top: 8vh;                   /* now this will move it DOWN */
     text-align: center;
   }
 
@@ -41,6 +41,7 @@ html, body {
     right: 20px;
   }
 }
+
 
 #site{display:none}
 #site.show{display:block;animation:siteReveal 0.8s ease-out}
