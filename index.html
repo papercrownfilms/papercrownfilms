@@ -211,22 +211,23 @@ document.body.style.overflow='auto';
 }
 });
 </script>
-
 <style>
-/* FINAL mobile override */
 @media(max-width:768px){
 
   #intro {
-    display: block !important;
+    position: relative !important;   /* overrides fixed + top:0 */
+    top: auto !important;
+    display: block !important;       /* kills flexbox */
     align-items: unset !important;
     justify-content: unset !important;
-    padding-top: 8vh !important;
+    height: auto !important;         /* frees the container height */
+    padding-top: 8vh !important;     /* NOW this will move it down */
     text-align: center;
   }
 
   .intro-video {
     width: 100vw !important;
-    height: auto !important;
+    height: auto !important;         /* overrides height:100% */
     object-fit: contain !important;
   }
 
@@ -236,6 +237,7 @@ document.body.style.overflow='auto';
   }
 }
 </style>
+
 
 </body>
 </html>
