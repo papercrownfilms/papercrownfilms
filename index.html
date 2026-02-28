@@ -8,6 +8,10 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+html, body {
+  overflow-x: hidden;
+}
+
 
 #intro{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000;z-index:10000;display:flex;align-items:center;justify-content:center;transition:opacity 0.8s ease-out}
 #intro.fade-out{opacity:0;pointer-events:none}
@@ -30,7 +34,7 @@ body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden
 /* Mobile override */
 @media(max-width:768px){
   .logo img {
-    width: 105vw;
+    width: 100vw;
     max-width: none;
   }
 }
