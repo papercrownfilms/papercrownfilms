@@ -216,25 +216,33 @@ document.body.style.overflow='auto';
 @media(max-width:768px){
 
   #intro {
-    position: absolute !important;   /* sits above content but not fixed */
+    position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
-    height: auto !important;         /* lets padding move it */
-    display: block !important;       /* kills flexbox */
+    height: auto !important;
+    display: block !important;
     align-items: unset !important;
     justify-content: unset !important;
-    padding-top: 25vh !important;     /* now moves it down */
+    padding-top: 25vh !important;
     z-index: 10000;
     background: #000;
   }
 
+  body, html {
+    overflow-x: hidden;
+  }
+
   .intro-video {
-    width: 100vw !important;
-    height: auto !important;         /* stops full-height stretching */
+    width: 120vw !important;     
+    max-width: none !important;  
+    height: auto !important;
     object-fit: contain !important;
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 }
+
 </style>
 
 </body>
