@@ -30,7 +30,7 @@ body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden
 /* Mobile override */
 @media(max-width:768px){
   .logo img {
-    width: 95vw;
+    width: 125vw;
     max-width: none;
   }
 }
@@ -56,6 +56,26 @@ h2::before,h2::after{content:'';flex:0 0 100px;height:1px;background:linear-grad
 .modal-info .status{font-family:'Inter',sans-serif;font-size:11px;font-weight:300;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5)}
 .close{position:absolute;top:-40px;right:-40px;width:50px;height:50px;background:#000;border:2px solid rgba(255,255,255,0.4);color:#fff;font-size:30px;cursor:pointer;border-radius:50%;line-height:46px;text-align:center;transition:all 0.3s}
 .close:hover{border-color:#c9a84c;color:#c9a84c;transform:rotate(90deg)}
+
+/* Mobile fix for modal scrolling */
+@media(max-width:768px){
+  .modal-inner {
+    position: relative;     /* allow natural height */
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 95%;
+    max-height: 90vh;       /* allow scrolling */
+    overflow-y: auto;       /* enable scroll */
+    display: block;         /* stack image + text vertically */
+    gap: 20px;              /* smaller gap for mobile */
+  }
+
+  .modal-inner img {
+    margin-bottom: 20px;    /* spacing when stacked */
+  }
+}
+
 
 footer{font-family:'Inter',sans-serif;text-align:center;padding:120px 40px 80px;border-top:1px solid rgba(201,168,76,0.2);margin-top:80px}
 footer a{color:#c9a84c;text-decoration:none;font-size:15px;font-weight:300;transition:opacity 0.3s}
