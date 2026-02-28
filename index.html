@@ -18,27 +18,26 @@ html, body {
 .intro-video{width:100%;height:100%;object-fit:contain}
 .skip{position:fixed;top:30px;right:30px;padding:10px 24px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;z-index:10001;border-radius:4px}
 .skip:hover{border-color:#c9a84c;color:#c9a84c;background:rgba(0,0,0,0.8)}
-
-/* Mobile fix for intro animation */
+/* FINAL override for mobile intro */
 @media(max-width:768px){
 
   #intro {
-    display: block !important;          /* force disable flexbox */
-    align-items: unset !important;      /* override flex alignment */
-    justify-content: unset !important;  /* override flex centering */
-    padding-top: 8vh;                   /* now this will move it DOWN */
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    padding-top: 10vh !important;   /* this WILL move it down */
     text-align: center;
   }
 
   .intro-video {
-    width: 100vw;
-    height: auto;
-    object-fit: contain;
+    width: 100vw !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
 
   .skip {
-    top: 20px;
-    right: 20px;
+    top: 20px !important;
+    right: 20px !important;
   }
 }
 
