@@ -102,7 +102,7 @@ footer{font-family:'Inter',sans-serif;text-align:center;padding:120px 40px 80px;
 footer a{color:#c9a84c;text-decoration:none;font-size:15px;font-weight:300;transition:opacity 0.3s}
 footer a:hover{opacity:0.7}
 
-@media(max-width:768px){.intro-video{transform:scale(1.5)}.logo img{max-width:500px}.bio{font-size:20px;padding:0 20px}.films{grid-template-columns:1fr}.modal-inner{grid-template-columns:1fr;width:95%}.modal-info h3{font-size:36px}h2::before,h2::after{flex:0 0 40px}}
+@media(max-width:768px){.logo img{max-width:500px}.bio{font-size:20px;padding:0 20px}.films{grid-template-columns:1fr}.modal-inner{grid-template-columns:1fr;width:95%}.modal-info h3{font-size:36px}h2::before,h2::after{flex:0 0 40px}}
 @keyframes siteReveal{from{opacity:0}to{opacity:1}}</style>
 </head>
 <body>
@@ -128,7 +128,7 @@ footer a:hover{opacity:0.7}
 </div></div>
 </div>
 <footer>
-<a href="/cdn-cgi/l/email-protection#a2cbccc4cde2d2c3d2c7d0c1d0cdd5ccc4cbcecfd18cc1cdcf"><span class="__cf_email__" data-cfemail="e980878f86a99988998c9b8a9b869e878f8085849ac78a8684">[email&#160;protected]</span></a><br><br>
+<a href="mailto:info@papercrownfilms.com">info@papercrownfilms.com</a><br><br>
 <a href="https://instagram.com/papercrownfilms" target="_blank">@papercrownfilms</a>
 </footer>
 </div>
@@ -169,7 +169,7 @@ footer a:hover{opacity:0.7}
 </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function skipIntro(){
 var intro=document.getElementById('intro');
 var site=document.getElementById('site');
@@ -224,4 +224,19 @@ document.body.style.overflow='auto';
     display: block !important;       /* kills flexbox */
     align-items: unset !important;
     justify-content: unset !important;
-    padding-top: 8vh !important;     /* no
+    padding-top: 8vh !important;     /* now moves it down */
+    z-index: 10000;
+    background: #000;
+  }
+
+  .intro-video {
+    width: 100vw !important;
+    height: auto !important;         /* stops full-height stretching */
+    object-fit: contain !important;
+  }
+}
+</style>
+
+</body>
+</html>
+
