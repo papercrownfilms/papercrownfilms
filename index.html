@@ -23,9 +23,11 @@ html, body {
 @media(max-width:768px){
 
   #intro {
-    display: block;          /* NEW — stops flexbox from pinning it */
-    padding-top: 7vh;        /* NEW — controls vertical position */
-    text-align: center;      /* keeps it centered horizontally */
+    display: block !important;        /* force disable flexbox */
+    align-items: unset !important;    /* override flex alignment */
+    justify-content: unset !important;
+    padding-top: 8vh;                 /* now this will work */
+    text-align: center;
   }
 
   .intro-video {
@@ -39,10 +41,6 @@ html, body {
     right: 20px;
   }
 }
-
-
-
-
 
 #site{display:none}
 #site.show{display:block;animation:siteReveal 0.8s ease-out}
