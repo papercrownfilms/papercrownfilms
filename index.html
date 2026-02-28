@@ -222,23 +222,23 @@ document.body.style.overflow='auto';
     width: 100vw !important;
     height: auto !important;
     display: block !important;
-    align-items: unset !important;
-    justify-content: unset !important;
     padding-top: 25vh !important;
-    z-index: 10000;
     background: #000;
+    z-index: 10000;
   }
 
   body, html {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
 
   .intro-video {
-    width: 120vw !important;     
-    max-width: none !important;  
+    width: 120vw !important;
+    max-width: none !important;
     height: auto !important;
     object-fit: contain !important;
-    margin-left: 50% !important;
+
+    position: relative !important;
+    left: 50% !important;
     transform: translateX(-50%) !important;
   }
 }
