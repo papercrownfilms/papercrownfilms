@@ -23,14 +23,15 @@ html, body {
 @media(max-width:768px){
 
   #intro {
-    align-items: flex-start;     /* lift the animation higher */
+    display: block;          /* NEW — stops flexbox from pinning it */
+    padding-top: 8vh;        /* NEW — controls vertical position */
+    text-align: center;      /* keeps it centered horizontally */
   }
 
   .intro-video {
-    width: 100vw;                /* make it larger */
-    height: 85vh;
+    width: 100vw;
+    height: auto;
     object-fit: contain;
-    margin-top: 2vh;             /* NEW — lowers the animation */
   }
 
   .skip {
@@ -38,6 +39,7 @@ html, body {
     right: 20px;
   }
 }
+
 
 
 
