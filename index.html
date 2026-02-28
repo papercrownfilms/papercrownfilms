@@ -215,25 +215,18 @@ document.body.style.overflow='auto';
 @media(max-width:768px){
 
   #intro {
-    position: relative !important;   /* overrides fixed + top:0 */
+    position: relative !important;
     top: auto !important;
-    display: block !important;       /* kills flexbox */
-    align-items: unset !important;
-    justify-content: unset !important;
-    height: auto !important;         /* frees the container height */
-    padding-top: 8vh !important;     /* NOW this will move it down */
+    height: auto !important;
+    display: block !important;
+    padding-top: 8vh !important;
     text-align: center;
   }
 
   .intro-video {
+    height: auto !important;
     width: 100vw !important;
-    height: auto !important;         /* overrides height:100% */
     object-fit: contain !important;
-  }
-
-  .skip {
-    top: 20px !important;
-    right: 20px !important;
   }
 }
 </style>
