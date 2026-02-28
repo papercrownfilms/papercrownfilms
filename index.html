@@ -245,13 +245,14 @@ document.body.style.overflow='auto';
   .intro-video.desktop {
     display: none !important;
   }
+.intro-video.mobile {
+  display: block !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  object-position: center -5vh !important; /* moves video up slightly */
+}
 
-  .intro-video.mobile {
-    display: block !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    object-fit: cover !important;
-  }
 
 }
 
