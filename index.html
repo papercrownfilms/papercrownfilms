@@ -276,20 +276,22 @@ document.body.style.overflow='auto';
 
 <!-- Fade-out script -->
 <script>
-  // IMPORTANT: use the SAME function the Skip button uses
-  // This ensures auto-fade behaves exactly like skip
-
-  // Desktop video
-  document.getElementById("introVideo").onended = skipIntro;
-
-  // Mobile video
-  const mobileVideo = document.querySelector(".intro-video.mobile");
-  if (mobileVideo) {
-    mobileVideo.onended = skipIntro;
+  // Trigger fade slightly BEFORE the video ends for a smooth transition
+  function triggerFadeEarly(video) {
+    video.addEventListener("timeupdate", () => {
+      if (video.currentTime >= video.duration - 0.3) {
+        skipIntro(); // same function your Skip button uses
+      }
+    });
   }
+
+  const desktopVideo = document.getElementById("introVideo");
+  const mobileVideo = document.querySelector(".intro-video.mobile");
+
+  if (desktopVideo) triggerFadeEarly(desktopVideo);
+  if (mobileVideo) triggerFadeEarly(mobileVideo);
 </script>
 
 </body>
 </html>
-
 
