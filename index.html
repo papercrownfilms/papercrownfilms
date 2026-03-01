@@ -291,9 +291,12 @@ document.body.style.overflow='auto';
 
 <!-- Fade-out script -->
 <script>
-  <!-- Fade-out script -->
-<script>
+  let introSkipped = false;
+
   function skipIntro(){
+    if (introSkipped) return; // prevent double-calls
+    introSkipped = true;
+
     var intro = document.getElementById('intro');
     var site = document.getElementById('site');
 
@@ -311,7 +314,7 @@ document.body.style.overflow='auto';
   var desktopVid = document.getElementById('introVideo');
   if (desktopVid) {
     desktopVid.addEventListener('timeupdate', () => {
-      if (desktopVid.currentTime >= desktopVid.duration - 0.3) {
+      if (!introSkipped && desktopVid.currentTime >= desktopVid.duration - 0.3) {
         skipIntro();
       }
     });
@@ -321,7 +324,7 @@ document.body.style.overflow='auto';
   var mobileVid = document.querySelector('.intro-video.mobile');
   if (mobileVid) {
     mobileVid.addEventListener('timeupdate', () => {
-      if (mobileVid.currentTime >= mobileVid.duration - 0.3) {
+      if (!introSkipped && mobileVid.currentTime >= mobileVid.duration - 0.3) {
         skipIntro();
       }
     });
