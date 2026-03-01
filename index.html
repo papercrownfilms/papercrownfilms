@@ -269,29 +269,39 @@ document.body.style.overflow='auto';
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  background: transparent; /* ← THIS stops the black screen */
+  background: transparent;
 }
 
 </style>
 
 <!-- Fade-out script -->
 <script>
-  // Trigger fade slightly BEFORE the video ends for a smooth transition
-  function triggerFadeEarly(video) {
-    video.addEventListener("timeupdate", () => {
-      if (video.currentTime >= video.duration - 0.3) {
-        skipIntro(); // same function your Skip button uses
-      }
-    });
+  function skipIntro(){
+    var intro = document.getElementById('intro');
+    var site = document.getElementById('site');
+
+    // fade out intro
+    intro.classList.add('fade-out');
+
+    // after fade completes, hide intro + show homepage
+    setTimeout(function(){
+      intro.style.display = 'none';
+      site.classList.add('show');
+    }, 800); // matches your CSS transition
   }
 
-  const desktopVideo = document.getElementById("introVideo");
-  const mobileVideo = document.querySelector(".intro-video.mobile");
+  // DESKTOP video
+  var desktopVid = document.getElementById('introVideo');
+  if (desktopVid) {
+    desktopVid.addEventListener('ended', skipIntro);
+  }
 
-  if (desktopVideo) triggerFadeEarly(desktopVideo);
-  if (mobileVideo) triggerFadeEarly(mobileVideo);
+  // MOBILE video
+  var mobileVid = document.querySelector('.intro-video.mobile');
+  if (mobileVid) {
+    mobileVid.addEventListener('ended', skipIntro);
+  }
 </script>
 
 </body>
 </html>
-
