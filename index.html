@@ -291,6 +291,8 @@ document.body.style.overflow='auto';
 
 <!-- Fade-out script -->
 <script>
+  <!-- Fade-out script -->
+<script>
   function skipIntro(){
     var intro = document.getElementById('intro');
     var site = document.getElementById('site');
@@ -308,13 +310,21 @@ document.body.style.overflow='auto';
   // DESKTOP video
   var desktopVid = document.getElementById('introVideo');
   if (desktopVid) {
-    desktopVid.addEventListener('ended', skipIntro);
+    desktopVid.addEventListener('timeupdate', () => {
+      if (desktopVid.currentTime >= desktopVid.duration - 0.3) {
+        skipIntro();
+      }
+    });
   }
 
   // MOBILE video
   var mobileVid = document.querySelector('.intro-video.mobile');
   if (mobileVid) {
-    mobileVid.addEventListener('ended', skipIntro);
+    mobileVid.addEventListener('timeupdate', () => {
+      if (mobileVid.currentTime >= mobileVid.duration - 0.3) {
+        skipIntro();
+      }
+    });
   }
 </script>
 
