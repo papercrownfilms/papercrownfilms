@@ -18,8 +18,23 @@ html, body {
 .intro-video{width:100%;height:100%;object-fit:contain}
 .skip{position:fixed;top:30px;right:30px;padding:10px 24px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;z-index:10001;border-radius:4px}
 .skip:hover{border-color:#c9a84c;color:#c9a84c;background:rgba(0,0,0,0.8)}
-#site{display:none}
-#site.show{display:block;animation:siteReveal 0.8s ease-out}
+#site {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  display: block;
+}
+
+#site.show {
+  opacity: 1;
+}
+
+.container{max-width:1400px;margin:0 auto;padding:40px 40px}
+@media(max-width:768px){
+  .container {
+    padding: 10px;
+  }
+}
+
 
 .container{max-width:1400px;margin:0 auto;padding:40px 40px}
 @media(max-width:768px){
