@@ -256,6 +256,14 @@ document.body.style.overflow='auto';
   object-position: center -10vh !important; /* moves video up slightly */
 }
 
+/* Fade-out fix: this makes the intro disappear instead of going black */
+#intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  background: transparent; /* ← THIS stops the black screen */
+}
+
 }
 </style>
 
@@ -277,5 +285,6 @@ document.body.style.overflow='auto';
 
 </body>
 </html>
+
 
 
