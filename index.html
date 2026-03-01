@@ -294,20 +294,22 @@ document.body.style.overflow='auto';
   let introSkipped = false;
 
   function skipIntro(){
-    if (introSkipped) return; // prevent double-calls
+    if (introSkipped) return;
     introSkipped = true;
 
     var intro = document.getElementById('intro');
     var site = document.getElementById('site');
 
+    // START homepage fade-in immediately (fixes blink)
+    site.classList.add('show');
+
     // fade out intro
     intro.classList.add('fade-out');
 
-    // after fade completes, hide intro + show homepage
+    // after fade completes, hide intro
     setTimeout(function(){
       intro.style.display = 'none';
-      site.classList.add('show');
-    }, 800); // matches your CSS transition
+    }, 800);
   }
 
   // DESKTOP video
