@@ -256,11 +256,26 @@ document.body.style.overflow='auto';
   object-position: center -10vh !important; /* moves video up slightly */
 }
 
-
 }
-
 </style>
+
+<!-- Fade-out script -->
+<script>
+  function endIntro() {
+    document.getElementById("intro").classList.add("fade-out");
+  }
+
+  // Desktop video
+  document.getElementById("introVideo").onended = endIntro;
+
+  // Mobile video
+  const mobileVideo = document.querySelector(".intro-video.mobile");
+  if (mobileVideo) {
+    mobileVideo.onended = endIntro;
+  }
+</script>
 
 </body>
 </html>
+
 
