@@ -256,6 +256,14 @@ document.body.style.overflow='auto';
   object-position: center -10vh !important; /* moves video up slightly */
 }
 
+.intro-video.mobile {
+  display: block !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  object-position: center -10vh !important; /* moves video up slightly */
+}
+
 /* Fade-out fix: this makes the intro disappear instead of going black */
 #intro.fade-out {
   opacity: 0;
@@ -264,27 +272,24 @@ document.body.style.overflow='auto';
   background: transparent; /* ← THIS stops the black screen */
 }
 
-}
 </style>
 
 <!-- Fade-out script -->
 <script>
-  function endIntro() {
-    document.getElementById("intro").classList.add("fade-out");
-  }
+  // IMPORTANT: use the SAME function the Skip button uses
+  // This ensures auto-fade behaves exactly like skip
 
   // Desktop video
-  document.getElementById("introVideo").onended = endIntro;
+  document.getElementById("introVideo").onended = skipIntro;
 
   // Mobile video
   const mobileVideo = document.querySelector(".intro-video.mobile");
   if (mobileVideo) {
-    mobileVideo.onended = endIntro;
+    mobileVideo.onended = skipIntro;
   }
 </script>
 
 </body>
 </html>
-
 
 
