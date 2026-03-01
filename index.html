@@ -294,23 +294,25 @@ document.body.style.overflow='auto';
   let introSkipped = false;
 
   function skipIntro(){
-    if (introSkipped) return;
-    introSkipped = true;
+  if (introSkipped) return;
+  introSkipped = true;
 
-    var intro = document.getElementById('intro');
-    var site = document.getElementById('site');
+  var intro = document.getElementById('intro');
+  var site = document.getElementById('site');
 
-    // START homepage fade-in immediately (fixes blink)
+  // fade out intro
+  intro.classList.add('fade-out');
+
+  // start homepage fade-in slightly after intro begins (fixes the cut)
+  setTimeout(function(){
     site.classList.add('show');
+  }, 100); // 0.1s delay = smooth crossfade
 
-    // fade out intro
-    intro.classList.add('fade-out');
-
-    // after fade completes, hide intro
-    setTimeout(function(){
-      intro.style.display = 'none';
-    }, 800);
-  }
+  // hide intro after fade completes
+  setTimeout(function(){
+    intro.style.display = 'none';
+  }, 800);
+}
 
   // DESKTOP video
   var desktopVid = document.getElementById('introVideo');
