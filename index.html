@@ -234,14 +234,11 @@ document.body.style.overflow='auto';
 </script>
 
 <style>
-
 /* Default: hide mobile video on desktop */
 .intro-video.mobile {
   display: none;
 }
-
 @media(max-width:768px){
-
   #intro {
     position: fixed !important;
     top: 0 !important;
@@ -249,70 +246,56 @@ document.body.style.overflow='auto';
     width: 100vw !important;
     height: 100vh !important;
     display: block !important;
-    padding-top: 0 !important;   /* changed from 25vh */
+    padding-top: 0 !important;
     background: #000;
     z-index: 10000;
     text-align: center !important;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
   }
-
   body, html {
     overflow-x: hidden !important;
   }
-
   /* On mobile: hide desktop video, show mobile video */
   .intro-video.desktop {
     display: none !important;
   }
-.intro-video.mobile {
-  display: block !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  object-fit: cover !important;
-  object-position: center -10vh !important; /* moves video up slightly */
+  .intro-video.mobile {
+    display: block !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    object-position: center -10vh !important;
+  }
+  /* Fade-out fix */
+  #intro.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    background: transparent;
+    transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+  }
 }
-
-.intro-video.mobile {
-  display: block !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  object-fit: cover !important;
-  object-position: center -10vh !important; /* moves video up slightly */
-}
-
-/* Fade-out fix: this makes the intro disappear instead of going black */
-#intro.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  background: transparent;
-}
-
 </style>
 
 <!-- Fade-out script -->
 <script>
   let introSkipped = false;
-
   function skipIntro(){
-  if (introSkipped) return;
-  introSkipped = true;
-
-  var intro = document.getElementById('intro');
-  var site = document.getElementById('site');
-
-  // fade out intro
-  intro.classList.add('fade-out');
-
-  // start homepage fade-in slightly after intro begins (fixes the cut)
-  setTimeout(function(){
-    site.classList.add('show');
-  }, 100); // 0.1s delay = smooth crossfade
-
-  // hide intro after fade completes
-  setTimeout(function(){
-    intro.style.display = 'none';
-  }, 800);
-}
+    if (introSkipped) return;
+    introSkipped = true;
+    var intro = document.getElementById('intro');
+    var site = document.getElementById('site');
+    // fade out intro
+    intro.classList.add('fade-out');
+    // start homepage fade-in slightly after intro begins
+    setTimeout(function(){
+      site.classList.add('show');
+    }, 100);
+    // hide intro after fade completes
+    setTimeout(function(){
+      intro.style.display = 'none';
+    }, 900);
+  }
 
   // DESKTOP video
   var desktopVid = document.getElementById('introVideo');
@@ -323,7 +306,6 @@ document.body.style.overflow='auto';
       }
     });
   }
-
   // MOBILE video
   var mobileVid = document.querySelector('.intro-video.mobile');
   if (mobileVid) {
@@ -334,6 +316,5 @@ document.body.style.overflow='auto';
     });
   }
 </script>
-
 </body>
 </html>
