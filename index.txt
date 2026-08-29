@@ -157,7 +157,6 @@ footer a:hover{opacity:0.7}
         Paper Crown Films will never ask for personal, financial, or login information via email.
     </p>
 </footer>
-</div>
 
 <div class="modal" id="modal-stan">
 <div class="modal-inner"><button class="close" onclick="closeModal('stan')">×</button>
