@@ -59,10 +59,10 @@ html, body {
 h2{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;text-align:center;margin:120px 0 70px;display:flex;align-items:center;justify-content:center;gap:30px}
 h2::before,h2::after{content:'';flex:0 0 100px;height:1px;background:linear-gradient(90deg,transparent,#c9a84c 50%,transparent)}
 
-.films{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;max-width:900px;margin:0 auto 100px}
-.film{width:100%;max-width:420px;margin:0 auto;cursor:pointer;transition:transform 0.3s ease}
+.films{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;max-width:1125px;margin:0 auto 100px}
+.film{width:100%;max-width:none;margin:0;cursor:pointer;transition:transform 0.3s ease}
 .film:hover{transform:translateY(-8px)}
-.film img,.film video{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;background:#000;display:block;border:1px solid rgba(201,168,76,0.3);transition:border-color 0.3s}
+.film img,.film video{width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:#000;display:block;border:1px solid rgba(201,168,76,0.3);transition:border-color 0.3s}
 .film:hover img,.film:hover video{border-color:#c9a84c}
 
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.96);z-index:9999}
@@ -120,7 +120,7 @@ footer{font-family:'Inter',sans-serif;text-align:center;padding:120px 40px 80px;
 footer a{color:#c9a84c;text-decoration:none;font-size:15px;font-weight:300;transition:opacity 0.3s}
 footer a:hover{opacity:0.7}
 
-@media(max-width:768px){.logo img{max-width:500px}.bio{font-size:20px;padding:0 20px}.films{grid-template-columns:1fr}.modal-inner{grid-template-columns:1fr;width:95%}.modal-info h3{font-size:36px}h2::before,h2::after{flex:0 0 40px}}
+@media(max-width:768px){.logo img{max-width:500px}.bio{font-size:20px;padding:0 20px}.films{grid-template-columns:1fr;max-width:540px;gap:32px}.modal-inner{grid-template-columns:1fr;width:95%}.modal-info h3{font-size:36px}h2::before,h2::after{flex:0 0 40px}}
 @keyframes siteReveal{from{opacity:0}to{opacity:1}}</style>
 </head>
 <body>
