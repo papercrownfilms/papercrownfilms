@@ -64,6 +64,7 @@ h2::before,h2::after{content:'';flex:0 0 100px;height:1px;background:linear-grad
 .film:hover{transform:translateY(-8px)}
 .film img,.film video{width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:#000;display:block;border:1px solid rgba(201,168,76,0.3);transition:border-color 0.3s}
 .film:hover img,.film:hover video{border-color:#c9a84c}
+.modal-stan-video{width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:#000;display:block;border:1px solid rgba(201,168,76,0.4);pointer-events:none}
 
 /* STAN animated poster: fill the entire 2:3 card while protecting the bottom laurels */
 .film-video{
@@ -71,13 +72,9 @@ h2::before,h2::after{content:'';flex:0 0 100px;height:1px;background:linear-grad
   aspect-ratio:2/3;
   object-fit:cover !important;
   object-position:center bottom;
-  pointer-events:none; /* Let clicks reach the poster container and modal controls */
 }
 
-.modal-inner .close{
-  z-index:10; /* Keep the close button above all modal content */
-}
-
+.modal-inner .close{z-index:10}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.96);z-index:9999}
 .modal.active{display:block}
 .modal-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:1000px;width:90%;display:grid;grid-template-columns:1fr 1.5fr;gap:60px}
@@ -157,9 +154,7 @@ footer a:hover{opacity:0.7}
 <div class="bio">Paper Crown Films is an independent production company based in Melbourne, Australia. We develop and produce films across multiple genres, pursuing bold ideas with emotional depth. Rooted in both Australia and Aotearoa New Zealand, we champion storytelling that speaks to an international audience—unfiltered, cinematic, and personal.</div>
 <div><h2>Short Films</h2><div class="films">
     <div class="film" onclick="openModal('stan')">
-        <video class="film-video" autoplay muted loop playsinline preload="metadata" poster="stan.jpg">
-            <source src="moviestan.mp4" type="video/mp4">
-        </video>
+        <img src="stan.png" alt="Stan">
     </div>
 
     <div class="film" onclick="openModal('allicee')">
@@ -202,7 +197,9 @@ footer a:hover{opacity:0.7}
 
 <div class="modal" id="modal-stan">
 <div class="modal-inner"><button class="close" onclick="closeModal('stan')">×</button>
-<div><img src="stan.jpg" alt="Stan">></div>
+<div><video class="modal-stan-video" muted loop playsinline preload="metadata" poster="stan.png">
+    <source src="moviestan.mp4" type="video/mp4">
+</video></div>
 <div class="modal-info"><h3>STAN</h3><div class="meta">Psychological Horror • 14 mins</div>
 <div class="logline">A teddy bear gifted by a grandfather quietly consumes a young girl's world, displacing those closest to her until the family fractures—then moves on to another child.</div>
 <div class="status">In Development</div></div>
@@ -254,19 +251,35 @@ vid.addEventListener('ended',skipIntro);
 }
 
 function openModal(id){
-document.getElementById('modal-'+id).classList.add('active');
+var modal=document.getElementById('modal-'+id);
+modal.classList.add('active');
 document.body.style.overflow='hidden';
+if(id==='stan'){
+var stanVideo=modal.querySelector('.modal-stan-video');
+if(stanVideo){stanVideo.currentTime=0;stanVideo.play().catch(function(){});}
+}
 }
 
 function closeModal(id){
-document.getElementById('modal-'+id).classList.remove('active');
+var modal=document.getElementById('modal-'+id);
+modal.classList.remove('active');
+if(id==='stan'){
+var stanVideo=modal.querySelector('.modal-stan-video');
+if(stanVideo){stanVideo.pause();stanVideo.currentTime=0;}
+}
 document.body.style.overflow='auto';
+}
+
+function stopStanModalVideo(){
+var stanVideo=document.querySelector('#modal-stan .modal-stan-video');
+if(stanVideo){stanVideo.pause();stanVideo.currentTime=0;}
 }
 
 document.addEventListener('click',function(e){
 if(e.target.classList.contains('modal')){
 var modals=document.querySelectorAll('.modal');
 modals.forEach(function(m){m.classList.remove('active')});
+stopStanModalVideo();
 document.body.style.overflow='auto';
 }
 });
@@ -275,6 +288,7 @@ document.addEventListener('keydown',function(e){
 if(e.key==='Escape'){
 var modals=document.querySelectorAll('.modal');
 modals.forEach(function(m){m.classList.remove('active')});
+stopStanModalVideo();
 document.body.style.overflow='auto';
 }
 });
